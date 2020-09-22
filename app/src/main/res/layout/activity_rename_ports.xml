@@ -1,0 +1,271 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@android:color/white">
+
+    <ImageView
+        android:id="@+id/header"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:background="@color/colorPrimaryDark"
+        />
+
+    <ImageView
+        android:layout_width="100dp"
+        android:layout_height="40dp"
+        android:src="@drawable/logo_one"
+        android:layout_marginLeft="20dp"/>
+
+
+    <ImageView
+        android:id="@+id/icon"
+        android:layout_width="250dp"
+        android:layout_height="120dp"
+        android:src="@drawable/top_up"
+        android:layout_marginTop="50dp"
+        android:alpha="0.3"
+        android:layout_centerHorizontal="true"/>
+
+
+    <TextView
+        android:id="@+id/fragment_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="40dp"
+        android:text="Rename Ports"
+        android:textColor="@android:color/black"
+        android:textSize="25sp"
+        android:textStyle="bold"
+        />
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@+id/icon"
+        android:text="You can rename the ports to your home appliances"
+        android:textColor="@android:color/black"
+        android:textSize="12sp"
+        android:textStyle="bold"
+        />
+
+
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
+        android:layout_below="@+id/header">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+
+            <com.github.ybq.android.spinkit.SpinKitView
+                android:id="@+id/spin_kit"
+                xmlns:app="http://schemas.android.com/apk/res-auto"
+                style="@style/SpinKitView.Large.Circle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_centerHorizontal="true"
+                app:SpinKit_Color="@color/colorAccent" />
+
+
+            <EditText
+                android:id="@+id/master_port"
+                android:layout_width="220dp"
+                android:layout_height="40dp"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/edit_text2"
+                android:textColor="@android:color/black"
+                android:focusable="true"
+                android:focusableInTouchMode ="true"
+                android:textSize="14sp"
+                android:textColorHint="@android:color/darker_gray"
+                />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Master port"
+                android:textColor="@android:color/black"
+                android:layout_marginLeft="100dp"
+                android:layout_marginTop="0dp"
+                android:background="@android:color/white"
+                android:maxLength="16"
+                />
+
+
+            <EditText
+                android:id="@+id/port_2"
+                android:layout_width="220dp"
+                android:layout_height="40dp"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="20dp"
+                android:layout_below="@+id/master_port"
+                android:background="@drawable/edit_text2"
+                android:textColor="@android:color/black"
+                android:focusable="true"
+                android:focusableInTouchMode ="true"
+                android:textSize="14sp"
+                android:textColorHint="@android:color/darker_gray"
+                />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Port 2"
+                android:textColor="@android:color/black"
+                android:layout_marginLeft="100dp"
+                android:layout_marginTop="10dp"
+                android:layout_below="@+id/master_port"
+                android:background="@android:color/white"
+                android:maxLength="16"
+                />
+
+            <EditText
+                android:id="@+id/port_3"
+                android:layout_width="220dp"
+                android:layout_height="40dp"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="20dp"
+                android:layout_below="@+id/port_2"
+                android:background="@drawable/edit_text2"
+                android:textColor="@android:color/black"
+                android:focusable="true"
+                android:focusableInTouchMode ="true"
+                android:textSize="14sp"
+                android:textColorHint="@android:color/darker_gray"
+                />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Port 3"
+                android:textColor="@android:color/black"
+                android:layout_marginLeft="100dp"
+                android:layout_marginTop="10dp"
+                android:layout_below="@+id/port_2"
+                android:background="@android:color/white"
+                android:maxLength="16"
+                />
+
+
+            <EditText
+                android:id="@+id/port_4"
+                android:layout_width="220dp"
+                android:layout_height="40dp"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="20dp"
+                android:layout_below="@+id/port_3"
+                android:background="@drawable/edit_text2"
+                android:textColor="@android:color/black"
+                android:focusable="true"
+                android:focusableInTouchMode ="true"
+                android:textSize="14sp"
+                android:textColorHint="@android:color/darker_gray"
+                />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Port 4"
+                android:textColor="@android:color/black"
+                android:layout_marginLeft="100dp"
+                android:layout_marginTop="10dp"
+                android:layout_below="@+id/port_3"
+                android:background="@android:color/white"
+                android:maxLength="16"
+                />
+
+
+            <EditText
+                android:id="@+id/port_5"
+                android:layout_width="220dp"
+                android:layout_height="40dp"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="20dp"
+                android:layout_below="@+id/port_4"
+                android:background="@drawable/edit_text2"
+                android:textColor="@android:color/black"
+                android:focusable="true"
+                android:focusableInTouchMode ="true"
+                android:textSize="14sp"
+                android:textColorHint="@android:color/darker_gray"
+
+                />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Port 5"
+                android:textColor="@android:color/black"
+                android:layout_marginLeft="100dp"
+                android:layout_marginTop="10dp"
+                android:layout_below="@+id/port_4"
+                android:background="@android:color/white"
+                android:maxLength="16"
+                />
+
+
+            <EditText
+                android:id="@+id/port_6"
+                android:layout_width="220dp"
+                android:layout_height="40dp"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="20dp"
+                android:layout_below="@+id/port_5"
+                android:background="@drawable/edit_text2"
+                android:textColor="@android:color/black"
+                android:focusable="true"
+                android:focusableInTouchMode ="true"
+                android:textSize="14sp"
+                android:textColorHint="@android:color/darker_gray"
+                />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Port 6"
+                android:textColor="@android:color/black"
+                android:layout_marginLeft="100dp"
+                android:layout_marginTop="10dp"
+                android:layout_below="@+id/port_5"
+                android:background="@android:color/white"
+                android:maxLength="16"
+                android:textColorHint="@android:color/darker_gray"
+                />
+
+            <Button
+                android:id="@+id/_rename"
+                android:layout_width="200dp"
+                android:layout_height="50dp"
+                android:layout_below="@+id/port_6"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="20dp"
+                android:background="@drawable/button_yellow"
+                android:text="Rename"
+                android:textColor="@android:color/black"
+                android:layout_marginBottom="40dp"/>
+
+
+        </RelativeLayout>
+
+    </ScrollView>
+
+
+
+
+
+
+
+
+</RelativeLayout>

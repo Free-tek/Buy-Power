@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "933564482071",
+    "firebase_url": "https://buy-power.firebaseio.com",
+    "project_id": "buy-power",
+    "storage_bucket": "buy-power.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:933564482071:android:3b5d0fcf925a348c4f1252",
+        "android_client_info": {
+          "package_name": "com.botosoft.buypower"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "933564482071-8cep3t8s0ifqb4bt2v29q3mjl36r0j5e.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.botosoft.buypower",
+            "certificate_hash": "efb9752a011da63a7de32cee5e8330f39e7912bd"
+          }
+        },
+        {
+          "client_id": "933564482071-pn1p8djeg5stk21h10nsllsqudneqjlo.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAYQJPxafDP_UXpXgwjEQ92ayL2Z7q8LSI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "933564482071-pn1p8djeg5stk21h10nsllsqudneqjlo.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
