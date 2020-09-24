@@ -67,7 +67,7 @@ public class ControlsFragment extends Fragment {
     String $power_availability, $port_size, $port1_power, $port2_power, $port3_power, $port4_power, $port5_power,
             $port6_power, $port1_online, $port2_online, $port3_online, $port4_online, $port5_online, $port6_online,
             $port1_powerConsumption, $port2_powerConsumption, $port3_powerConsumption,
-            $port4_powerConsumption, $port5_powerConsumption, $port6_powerConsumption, $port1_name, $port2_name, $port3_name, $port4_name, $port5_name, $port6_name;
+            $port4_powerConsumption, $port5_powerConsumption, $port6_powerConsumption, $port1_name, $port2_name, $port3_name, $port4_name, $port5_name, $port6_name, $last_report_timestamp;
 
 
     //Firebase
@@ -749,6 +749,7 @@ public class ControlsFragment extends Fragment {
                 $port2_name = String.valueOf(dataSnapshot.child(userID).child("devices").child(_customerId).child("port2").child("name").getValue());
                 $port3_name = String.valueOf(dataSnapshot.child(userID).child("devices").child(_customerId).child("port3").child("name").getValue());
                 $port4_name = String.valueOf(dataSnapshot.child(userID).child("devices").child(_customerId).child("port4").child("name").getValue());
+                $last_report_timestamp = String.valueOf(dataSnapshot.child(userID).child("devices").child(_customerId).child("port1").child("last_report_timestamp").getValue());
 
                 if(_portNo == 6){
                     $port5_name = String.valueOf(dataSnapshot.child(userID).child("devices").child(_customerId).child("port5").child("name").getValue());
@@ -776,14 +777,24 @@ public class ControlsFragment extends Fragment {
                 $port1_online = String.valueOf(dataSnapshot.child(userID).child("devices").child(_customerId).child("port1").child("online_status").getValue());
                 $port1_power = String.valueOf(dataSnapshot.child(userID).child("devices").child(_customerId).child("port1").child("power_status").getValue());
 
-                $port1_powerConsumption = String.valueOf(dataSnapshot.child(userID).child("devices").child(_customerId).child("port1").child("port_power_consumed").getValue());
+                $port1_powerConsumption = String.valueOf(dataSnapshot.child(userID).child("devices").child(_customerId).child("daily_power_logs").child($last_report_timestamp).child("port1").getValue());
+                $port2_powerConsumption = String.valueOf(dataSnapshot.child(userID).child("devices").child(_customerId).child("daily_power_logs").child($last_report_timestamp).child("port2").getValue());
+                $port3_powerConsumption = String.valueOf(dataSnapshot.child(userID).child("devices").child(_customerId).child("daily_power_logs").child($last_report_timestamp).child("port3").getValue());
+                $port4_powerConsumption = String.valueOf(dataSnapshot.child(userID).child("devices").child(_customerId).child("daily_power_logs").child($last_report_timestamp).child("port4").getValue());
+
+
+                /* $port1_powerConsumption = String.valueOf(dataSnapshot.child(userID).child("devices").child(_customerId).child("port1").child("port_power_consumed").getValue());
                 $port2_powerConsumption = String.valueOf(dataSnapshot.child(userID).child("devices").child(_customerId).child("port2").child("port_power_consumed").getValue());
                 $port3_powerConsumption = String.valueOf(dataSnapshot.child(userID).child("devices").child(_customerId).child("port3").child("port_power_consumed").getValue());
-                $port4_powerConsumption = String.valueOf(dataSnapshot.child(userID).child("devices").child(_customerId).child("port4").child("port_power_consumed").getValue());
+                $port4_powerConsumption = String.valueOf(dataSnapshot.child(userID).child("devices").child(_customerId).child("port4").child("port_power_consumed").getValue());*/
 
                 if(_portNo == 6){
-                    $port5_powerConsumption = String.valueOf(dataSnapshot.child(userID).child("devices").child(_customerId).child("port5").child("port_power_consumed").getValue());
+                    /*$port5_powerConsumption = String.valueOf(dataSnapshot.child(userID).child("devices").child(_customerId).child("port5").child("port_power_consumed").getValue());
                     $port6_powerConsumption = String.valueOf(dataSnapshot.child(userID).child("devices").child(_customerId).child("port6").child("port_power_consumed").getValue());
+                   */
+
+                    $port5_powerConsumption = String.valueOf(dataSnapshot.child(userID).child("devices").child(_customerId).child("daily_power_logs").child($last_report_timestamp).child("port5").getValue());
+                    $port6_powerConsumption = String.valueOf(dataSnapshot.child(userID).child("devices").child(_customerId).child("daily_power_logs").child($last_report_timestamp).child("port6").getValue());
                 }
 
 
