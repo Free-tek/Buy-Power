@@ -1,6 +1,7 @@
 package com.botosoft.buypower.activities;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -108,6 +109,8 @@ public class PowerConsumedActivity  extends AppCompatActivity {
 
 
     private void loadMenuFourPorts() {
+
+
         Query query = FirebaseDatabase.getInstance()
                 .getReference().child("users").child(userID).child("devices").child(customerId).child("daily_power_logs");
 
@@ -189,7 +192,7 @@ public class PowerConsumedActivity  extends AppCompatActivity {
 
         };
 
-
+        adapter.startListening();
         adapter.notifyDataSetChanged(); //Refresh data if changed
         recycler_menu.setAdapter(adapter);
 
@@ -199,15 +202,19 @@ public class PowerConsumedActivity  extends AppCompatActivity {
 
     //Create Load Menu method below.
     private void loadMenuSixPorts() {
+
+
         Query query = FirebaseDatabase.getInstance()
                 .getReference().child("users").child(userID).child("devices").child(customerId).child("daily_power_logs");
 
+        //Log.e("check", "this is your customer id" + customerId + ":::" + query );
         FirebaseRecyclerOptions<PowerConsumedModel> options =
                 new FirebaseRecyclerOptions.Builder<PowerConsumedModel>()
                         .setQuery(query, new SnapshotParser<PowerConsumedModel>() {
                             @NonNull
                             @Override
                             public PowerConsumedModel parseSnapshot(@NonNull DataSnapshot snapshot) {
+                                Log.e("check", "this is your customer id" + customerId + ":::" + snapshot.getKey() );
                                 return new PowerConsumedModel(
                                         snapshot.getKey(),
                                         snapshot.child("port1").getValue().toString(),
@@ -274,12 +281,43 @@ public class PowerConsumedActivity  extends AppCompatActivity {
 
         };
 
-
+        adapter.startListening();
         adapter.notifyDataSetChanged(); //Refresh data if changed
         recycler_menu.setAdapter(adapter);
 
 
     }
+
+    @Override
+    protected void onResume(){
+        super.onResume();
+    }
+
+    @Override
+    protected void onPause(){
+        super.onPause();
+    }
+
+    @Override
+    protected void onDestroy(){
+        super.onDestroy();
+
+    }
+
+    @Override
+    protected void onStart(){
+        super.onStart();
+
+
+    }
+
+    @Override
+    protected void onStop(){
+        super.onStop();
+        adapter.stopListening();
+
+    }
+
 
 
 

@@ -15,12 +15,13 @@ import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProviders;
 
 import com.botosoft.buypower.R;
+import com.botosoft.buypower.activities.PowerConsumedActivity;
 import com.botosoft.buypower.activities.RenamePortsActivity;
 
 public class SupportFragment extends Fragment {
 
     private SupportViewModel notificationsViewModel;
-    Button rename, support, subscriptions;
+    Button rename, support, subscriptions, powerConsumption;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
@@ -38,6 +39,8 @@ public class SupportFragment extends Fragment {
         rename = (Button) view.findViewById(R.id.rename);
         support = (Button) view.findViewById(R.id.support);
         subscriptions = (Button) view.findViewById(R.id.subscriptions);
+        subscriptions = (Button) view.findViewById(R.id.subscriptions);
+        powerConsumption = (Button) view.findViewById(R.id.power_consumed);
 
         rename.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -58,6 +61,14 @@ public class SupportFragment extends Fragment {
             @Override
             public void onClick(View view) {
 
+            }
+        });
+
+        powerConsumption.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getActivity(), PowerConsumedActivity.class);
+                startActivity(intent);
             }
         });
 
