@@ -24,6 +24,7 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.cardview.widget.CardView;
+import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 import androidx.lifecycle.Observer;
@@ -767,10 +768,14 @@ public class ControlsFragment extends Fragment {
 
                 $power_availability = String.valueOf(dataSnapshot.child(userID).child("devices").child(_customerId).child("power_source").getValue());
                 if (Integer.parseInt($power_availability) == 0) {
-                    power.setImageDrawable(getResources().getDrawable(R.drawable.not_available));
+
+                    ;
+
+                    power.setImageResource(R.drawable.not_available);
                     powerText.setText("Power Unavailable");
                 } else {
-                    power.setImageDrawable(getResources().getDrawable(R.drawable.available));
+                    power.setImageResource(R.drawable.available);
+                    //power.setImageDrawable(ContextCompat.getDrawable(getContext(),R.drawable.available));
                     powerText.setText("Power available");
                 }
 
@@ -799,12 +804,12 @@ public class ControlsFragment extends Fragment {
 
 
                 if (Integer.parseInt($port1_online) == 0) {
-                    onlineStats1.setImageDrawable(getResources().getDrawable(R.drawable.circle_unavailable));
-                    onlineStats2.setImageDrawable(getResources().getDrawable(R.drawable.circle_unavailable));
-                    onlineStats3.setImageDrawable(getResources().getDrawable(R.drawable.circle_unavailable));
-                    onlineStats4.setImageDrawable(getResources().getDrawable(R.drawable.circle_unavailable));
-                    onlineStats5.setImageDrawable(getResources().getDrawable(R.drawable.circle_unavailable));
-                    onlineStats6.setImageDrawable(getResources().getDrawable(R.drawable.circle_unavailable));
+                    onlineStats1.setImageResource(R.drawable.circle_unavailable);
+                    onlineStats2.setImageResource(R.drawable.circle_unavailable);
+                    onlineStats3.setImageResource(R.drawable.circle_unavailable);
+                    onlineStats4.setImageResource(R.drawable.circle_unavailable);
+                    onlineStats5.setImageResource(R.drawable.circle_unavailable);
+                    onlineStats6.setImageResource(R.drawable.circle_unavailable);
                     port1Switch.setBackground(getResources().getDrawable(R.drawable.off));
                     port1Switch.setVisibility(View.VISIBLE);
                     masterPort1Consumption.setText("offline");
@@ -820,12 +825,12 @@ public class ControlsFragment extends Fragment {
 
 
                 } else {
-                    onlineStats1.setImageDrawable(getResources().getDrawable(R.drawable.circle_available));
-                    onlineStats2.setImageDrawable(getResources().getDrawable(R.drawable.circle_available));
-                    onlineStats3.setImageDrawable(getResources().getDrawable(R.drawable.circle_available));
-                    onlineStats4.setImageDrawable(getResources().getDrawable(R.drawable.circle_available));
-                    onlineStats5.setImageDrawable(getResources().getDrawable(R.drawable.circle_available));
-                    onlineStats6.setImageDrawable(getResources().getDrawable(R.drawable.circle_available));
+                    onlineStats1.setImageResource(R.drawable.circle_available);
+                    onlineStats2.setImageResource(R.drawable.circle_available);
+                    onlineStats3.setImageResource(R.drawable.circle_available);
+                    onlineStats4.setImageResource(R.drawable.circle_available);
+                    onlineStats5.setImageResource(R.drawable.circle_available);
+                    onlineStats6.setImageResource(R.drawable.circle_available);
                     masterPort1Consumption.setVisibility(View.VISIBLE);
                     masterPort1Consumption.setText($port1_powerConsumption + "KW");
                     port2Consumption.setText($port2_powerConsumption + "KW");
@@ -864,11 +869,11 @@ public class ControlsFragment extends Fragment {
                 }
 
                 if(Integer.parseInt($port2_online) == 0){
-                    onlineStats2.setImageDrawable(getResources().getDrawable(R.drawable.circle_unavailable));
+                    onlineStats2.setImageResource(R.drawable.circle_unavailable);
                     port2Consumption.setText("offline");
 
                 }else{
-                    onlineStats2.setImageDrawable(getResources().getDrawable(R.drawable.circle_available));
+                    onlineStats2.setImageResource(R.drawable.circle_available);
                     port2Consumption.setVisibility(View.VISIBLE);
                     port2Consumption.setText($port2_powerConsumption  + "KW");
 
@@ -889,12 +894,12 @@ public class ControlsFragment extends Fragment {
                 }
 
                 if(Integer.parseInt($port3_online) == 0){
-                    onlineStats3.setImageDrawable(getResources().getDrawable(R.drawable.circle_unavailable));
+                    onlineStats3.setImageResource(R.drawable.circle_unavailable);
                     port3Switch.setBackground(getResources().getDrawable(R.drawable.off));
                     port3Switch.setVisibility(View.VISIBLE);
                     port3Consumption.setText("offline");
                 }else{
-                    onlineStats3.setImageDrawable(getResources().getDrawable(R.drawable.circle_available));
+                    onlineStats3.setImageResource(R.drawable.circle_available);
                     port3Consumption.setVisibility(View.VISIBLE);
                     port3Consumption.setText($port3_powerConsumption  + "KW");
 
@@ -916,12 +921,12 @@ public class ControlsFragment extends Fragment {
                 }
 
                 if(Integer.parseInt($port4_online) == 0){
-                    onlineStats4.setImageDrawable(getResources().getDrawable(R.drawable.circle_unavailable));
+                    onlineStats4.setImageResource(R.drawable.circle_unavailable);
                     port4Switch.setBackground(getResources().getDrawable(R.drawable.off));
                     port4Switch.setVisibility(View.VISIBLE);
                     port4Consumption.setText("offline");
                 }else{
-                    onlineStats4.setImageDrawable(getResources().getDrawable(R.drawable.circle_available));
+                    onlineStats4.setImageResource(R.drawable.circle_available);
                     port4Consumption.setVisibility(View.VISIBLE);
                     port4Consumption.setText($port4_powerConsumption  + "KW");
 
@@ -965,12 +970,12 @@ public class ControlsFragment extends Fragment {
 
 
                     if(Integer.parseInt($port5_online) == 0){
-                        onlineStats5.setImageDrawable(getResources().getDrawable(R.drawable.circle_unavailable));
+                        onlineStats5.setImageResource(R.drawable.circle_unavailable);
                         port5Switch.setBackground(getResources().getDrawable(R.drawable.off));
                         port5Switch.setVisibility(View.VISIBLE);
                         port5Consumption.setText("offline");
                     }else{
-                        onlineStats5.setImageDrawable(getResources().getDrawable(R.drawable.circle_available));
+                        onlineStats5.setImageResource(R.drawable.circle_available);
                         port5Consumption.setVisibility(View.VISIBLE);
                         port5Consumption.setText($port5_powerConsumption  + "KW");
 
@@ -990,12 +995,12 @@ public class ControlsFragment extends Fragment {
 
 
                      if(Integer.parseInt($port6_online) == 0){
-                        onlineStats6.setImageDrawable(getResources().getDrawable(R.drawable.circle_unavailable));
+                        onlineStats6.setImageResource(R.drawable.circle_unavailable);
                         port6Switch.setBackground(getResources().getDrawable(R.drawable.off));
                         port6Switch.setVisibility(View.VISIBLE);
                         port6Consumption.setText("offline");
                     }else{
-                        onlineStats6.setImageDrawable(getResources().getDrawable(R.drawable.circle_available));
+                        onlineStats6.setImageResource(R.drawable.circle_available);
                         port6Consumption.setVisibility(View.VISIBLE);
                         port6Consumption.setText($port6_powerConsumption  + "KW");
 
@@ -1162,21 +1167,21 @@ public class ControlsFragment extends Fragment {
 
 
                 if (Integer.parseInt($power_availability) == 0) {
-                    power.setImageDrawable(getResources().getDrawable(R.drawable.not_available));
+                    power.setImageResource(R.drawable.not_available));
                     powerText.setText("Power Unavailable");
                 } else {
-                    power.setImageDrawable(getResources().getDrawable(R.drawable.available));
+                    power.setImageResource(R.drawable.available));
                     powerText.setText("Power available");
                 }
 
 
                 if (Integer.parseInt($port1_online) == 0) {
-                    onlineStats1.setImageDrawable(getResources().getDrawable(R.drawable.circle_unavailable));
-                    onlineStats2.setImageDrawable(getResources().getDrawable(R.drawable.circle_unavailable));
-                    onlineStats3.setImageDrawable(getResources().getDrawable(R.drawable.circle_unavailable));
-                    onlineStats4.setImageDrawable(getResources().getDrawable(R.drawable.circle_unavailable));
-                    onlineStats5.setImageDrawable(getResources().getDrawable(R.drawable.circle_unavailable));
-                    onlineStats6.setImageDrawable(getResources().getDrawable(R.drawable.circle_unavailable));
+                    onlineStats1.setImageResource(R.drawable.circle_unavailable);
+                    onlineStats2.setImageResource(R.drawable.circle_unavailable);
+                    onlineStats3.setImageResource(R.drawable.circle_unavailable);
+                    onlineStats4.setImageResource(R.drawable.circle_unavailable);
+                    onlineStats5.setImageResource(R.drawable.circle_unavailable);
+                    onlineStats6.setImageResource(R.drawable.circle_unavailable);
                     port1Switch.setBackground(getResources().getDrawable(R.drawable.off));
                     port1Switch.setVisibility(View.VISIBLE);
                     masterPort1Consumption.setText("offline");
@@ -1187,12 +1192,12 @@ public class ControlsFragment extends Fragment {
                     port6Consumption.setText("offline");
 
                 } else {
-                    onlineStats1.setImageDrawable(getResources().getDrawable(R.drawable.circle_available));
-                    onlineStats2.setImageDrawable(getResources().getDrawable(R.drawable.circle_available));
-                    onlineStats3.setImageDrawable(getResources().getDrawable(R.drawable.circle_available));
-                    onlineStats4.setImageDrawable(getResources().getDrawable(R.drawable.circle_available));
-                    onlineStats5.setImageDrawable(getResources().getDrawable(R.drawable.circle_available));
-                    onlineStats6.setImageDrawable(getResources().getDrawable(R.drawable.circle_available));
+                    onlineStats1.setImageResource(R.drawable.circle_available);
+                    onlineStats2.setImageResource(R.drawable.circle_available);
+                    onlineStats3.setImageResource(R.drawable.circle_available);
+                    onlineStats4.setImageResource(R.drawable.circle_available);
+                    onlineStats5.setImageResource(R.drawable.circle_available);
+                    onlineStats6.setImageResource(R.drawable.circle_available);
                     masterPort1Consumption.setVisibility(View.VISIBLE);
                     masterPort1Consumption.setText($port1_powerConsumption + "KW");
                     port2Consumption.setText($port2_powerConsumption + "KW");
@@ -1215,11 +1220,11 @@ public class ControlsFragment extends Fragment {
                 }
 
                 *//*if(Integer.parseInt($port2_online) == 0){
-                    onlineStats2.setImageDrawable(getResources().getDrawable(R.drawable.circle_unavailable));
+                    onlineStats2.setImageResource(R.drawable.circle_unavailable);
                     port2Consumption.setText("offline");
 
                 }else{
-                    onlineStats2.setImageDrawable(getResources().getDrawable(R.drawable.circle_available));
+                    onlineStats2.setImageResource(R.drawable.circle_available);
                     port2Consumption.setVisibility(View.VISIBLE);
                     port2Consumption.setText($port2_powerConsumption  + "KW");
 
@@ -1239,12 +1244,12 @@ public class ControlsFragment extends Fragment {
 
 *//*
                 if(Integer.parseInt($port3_online) == 0){
-                    onlineStats3.setImageDrawable(getResources().getDrawable(R.drawable.circle_unavailable));
+                    onlineStats3.setImageResource(R.drawable.circle_unavailable);
                     port3Switch.setBackground(getResources().getDrawable(R.drawable.off));
                     port3Switch.setVisibility(View.VISIBLE);
                     port3Consumption.setText("offline");
                 }else{
-                    onlineStats3.setImageDrawable(getResources().getDrawable(R.drawable.circle_available));
+                    onlineStats3.setImageResource(R.drawable.circle_available);
                     port3Consumption.setVisibility(View.VISIBLE);
                     port3Consumption.setText($port3_powerConsumption  + "KW");
 
@@ -1261,12 +1266,12 @@ public class ControlsFragment extends Fragment {
 
 
                 *//*if(Integer.parseInt($port4_online) == 0){
-                    onlineStats4.setImageDrawable(getResources().getDrawable(R.drawable.circle_unavailable));
+                    onlineStats4.setImageResource(R.drawable.circle_unavailable);
                     port4Switch.setBackground(getResources().getDrawable(R.drawable.off));
                     port4Switch.setVisibility(View.VISIBLE);
                     port4Consumption.setText("offline");
                 }else{
-                    onlineStats4.setImageDrawable(getResources().getDrawable(R.drawable.circle_available));
+                    onlineStats4.setImageResource(R.drawable.circle_available);
                     port4Consumption.setVisibility(View.VISIBLE);
                     port4Consumption.setText($port4_powerConsumption  + "KW");
 
@@ -1302,12 +1307,12 @@ public class ControlsFragment extends Fragment {
 
 
                     *//*if(Integer.parseInt($port5_online) == 0){
-                        onlineStats5.setImageDrawable(getResources().getDrawable(R.drawable.circle_unavailable));
+                        onlineStats5.setImageResource(R.drawable.circle_unavailable);
                         port5Switch.setBackground(getResources().getDrawable(R.drawable.off));
                         port5Switch.setVisibility(View.VISIBLE);
                         port5Consumption.setText("offline");
                     }else{
-                        onlineStats5.setImageDrawable(getResources().getDrawable(R.drawable.circle_available));
+                        onlineStats5.setImageResource(R.drawable.circle_available);
                         port5Consumption.setVisibility(View.VISIBLE);
                         port5Consumption.setText($port5_powerConsumption  + "KW");
 
@@ -1324,12 +1329,12 @@ public class ControlsFragment extends Fragment {
 
 
                     *//*if(Integer.parseInt($port6_online) == 0){
-                        onlineStats6.setImageDrawable(getResources().getDrawable(R.drawable.circle_unavailable));
+                        onlineStats6.setImageResource(R.drawable.circle_unavailable);
                         port6Switch.setBackground(getResources().getDrawable(R.drawable.off));
                         port6Switch.setVisibility(View.VISIBLE);
                         port6Consumption.setText("offline");
                     }else{
-                        onlineStats6.setImageDrawable(getResources().getDrawable(R.drawable.circle_available));
+                        onlineStats6.setImageResource(R.drawable.circle_available);
                         port6Consumption.setVisibility(View.VISIBLE);
                         port6Consumption.setText($port6_powerConsumption  + "KW");
 

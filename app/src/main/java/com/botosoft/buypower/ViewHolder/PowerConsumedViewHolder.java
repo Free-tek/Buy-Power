@@ -12,7 +12,7 @@ import com.botosoft.buypower.R;
 public class PowerConsumedViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
 
     public TextView port1Name, port2Name, port3Name, port4Name, port5Name, port6Name ;
-    public TextView port1, port2, port3, port4, port5, port6;
+    public TextView port1, port2, port3, port4, port5, port6, time;
     private ItemClickListener itemClickListener;
 
     public PowerConsumedViewHolder(View itemView) {
@@ -23,6 +23,8 @@ public class PowerConsumedViewHolder extends RecyclerView.ViewHolder implements 
         this.port4Name = (TextView) itemView.findViewById(R.id.port4_name);
         this.port5Name = (TextView) itemView.findViewById(R.id.port5_name);
         this.port6Name = (TextView) itemView.findViewById(R.id.port6_name);
+
+        this.time = (TextView) itemView.findViewById(R.id.time);
 
         this.port1 = (TextView) itemView.findViewById(R.id.port1);
         this.port2 = (TextView) itemView.findViewById(R.id.port2);

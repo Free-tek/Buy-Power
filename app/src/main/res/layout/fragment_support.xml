@@ -83,6 +83,7 @@
                 android:background="@drawable/button_yellow"
                 android:text="Subscriptions"
                 android:textColor="@android:color/black"
+                android:visibility="gone"
                 />
 
             <Button
@@ -110,6 +111,21 @@
                 android:layout_centerHorizontal="true"
                 android:background="@drawable/button_yellow"
                 android:text="Contact us for Support"
+                android:textColor="@android:color/black"
+                android:visibility="gone"
+                />
+
+            <Button
+                android:id="@+id/signOut"
+                android:layout_width="match_parent"
+                android:layout_marginLeft="50dp"
+                android:layout_marginRight="50dp"
+                android:layout_height="50dp"
+                android:layout_below="@id/support"
+                android:layout_marginTop="20dp"
+                android:layout_centerHorizontal="true"
+                android:background="@drawable/button_yellow"
+                android:text="Sign Out"
                 android:textColor="@android:color/black"
                 />
 

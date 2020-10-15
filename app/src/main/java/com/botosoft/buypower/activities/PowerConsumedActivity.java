@@ -31,6 +31,9 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 public class PowerConsumedActivity  extends AppCompatActivity {
 
     //Fitrebase
@@ -40,7 +43,7 @@ public class PowerConsumedActivity  extends AppCompatActivity {
 
     //View
     RecyclerView recycler_menu;
-    RecyclerView.LayoutManager layoutManager;
+    LinearLayoutManager layoutManager;
 
     String customerId, port1Name, port2Name, port3Name, port4Name, port5Name, port6Name;
 
@@ -71,6 +74,8 @@ public class PowerConsumedActivity  extends AppCompatActivity {
         recycler_menu.setHasFixedSize(true);
         layoutManager = new LinearLayoutManager(this);
         recycler_menu.setLayoutManager(layoutManager);
+        layoutManager.setReverseLayout(true);
+        layoutManager.setStackFromEnd(true);
 
         users.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
@@ -120,12 +125,38 @@ public class PowerConsumedActivity  extends AppCompatActivity {
                             @NonNull
                             @Override
                             public PowerConsumedModel parseSnapshot(@NonNull DataSnapshot snapshot) {
+                                String key =  snapshot.getKey();
+                                String snapshot1 = "";
+                                String snapshot2 = "";
+                                String snapshot3 = "";
+                                String snapshot4 = "";
+
+
+                                if (snapshot.child("port1").exists()){
+                                    snapshot1 = snapshot.child("port1").getValue().toString();
+                                }
+
+                                if (snapshot.child("port2").exists()){
+                                    snapshot2 = snapshot.child("port2").getValue().toString();
+                                }
+
+                                if (snapshot.child("port3").exists()){
+                                    snapshot3= snapshot.child("port3").getValue().toString();
+                                }
+                                if (snapshot.child("port4").exists()){
+                                    snapshot4 = snapshot.child("port4").getValue().toString();
+                                }
+
+
+
+
+
                                 return new PowerConsumedModel(
-                                        snapshot.getKey(),
-                                        snapshot.child("port1").getValue().toString(),
-                                        snapshot.child("port2").getValue().toString(),
-                                        snapshot.child("port3").getValue().toString(),
-                                        snapshot.child("port4").getValue().toString(),
+                                        key,
+                                        snapshot1,
+                                        snapshot2,
+                                        snapshot3,
+                                        snapshot4,
                                         "",
                                         "",
                                         port1Name,
@@ -134,12 +165,7 @@ public class PowerConsumedActivity  extends AppCompatActivity {
                                         port4Name,
                                         "",
                                         "",
-                                        String.valueOf(Integer.parseInt(snapshot.child("port1").getValue().toString()) +
-                                                Integer.parseInt(snapshot.child("port2").getValue().toString())  +
-                                                Integer.parseInt(snapshot.child("port3").getValue().toString()) +
-                                                Integer.parseInt(snapshot.child("port4").getValue().toString()))
-
-
+                                        ""
                                 );
                             }
                         })
@@ -215,28 +241,53 @@ public class PowerConsumedActivity  extends AppCompatActivity {
                             @Override
                             public PowerConsumedModel parseSnapshot(@NonNull DataSnapshot snapshot) {
                                 Log.e("check", "this is your customer id" + customerId + ":::" + snapshot.getKey() );
+
+                                String key =  snapshot.getKey();
+                                String snapshot1 = "";
+                                String snapshot2 = "";
+                                String snapshot3 = "";
+                                String snapshot4 = "";
+                                String snapshot5 = "";
+                                String snapshot6 = "";
+
+                                if (snapshot.child("port1").exists()){
+                                    snapshot1 = snapshot.child("port1").getValue().toString();
+                                }
+
+                                if (snapshot.child("port2").exists()){
+                                    snapshot2 = snapshot.child("port2").getValue().toString();
+                                }
+
+                                if (snapshot.child("port3").exists()){
+                                    snapshot3= snapshot.child("port3").getValue().toString();
+                                }
+                                if (snapshot.child("port4").exists()){
+                                    snapshot4 = snapshot.child("port4").getValue().toString();
+                                }
+                                if (snapshot.child("port5").exists()){
+                                    snapshot5 = snapshot.child("port5").getValue().toString();
+                                }
+                                if (snapshot.child("port6").exists()){
+                                    snapshot6 = snapshot.child("port6").getValue().toString();
+                                }
+
                                 return new PowerConsumedModel(
-                                        snapshot.getKey(),
-                                        snapshot.child("port1").getValue().toString(),
-                                        snapshot.child("port2").getValue().toString(),
-                                        snapshot.child("port3").getValue().toString(),
-                                        snapshot.child("port4").getValue().toString(),
-                                        snapshot.child("port5").getValue().toString(),
-                                        snapshot.child("port6").getValue().toString(),
+                                        key,
+                                        snapshot1,
+                                        snapshot2,
+                                        snapshot3,
+                                        snapshot4,
+                                        snapshot5,
+                                        snapshot6,
                                         port1Name,
                                         port2Name,
                                         port3Name,
                                         port4Name,
                                         port5Name,
                                         port6Name,
-                                        String.valueOf(Integer.parseInt(snapshot.child("port1").getValue().toString()) +
-                                                Integer.parseInt(snapshot.child("port2").getValue().toString())  +
-                                                Integer.parseInt(snapshot.child("port3").getValue().toString()) +
-                                                Integer.parseInt(snapshot.child("port4").getValue().toString()) +
-                                                Integer.parseInt(snapshot.child("port5").getValue().toString()) +
-                                                Integer.parseInt(snapshot.child("port6").getValue().toString()))
-
+                                        ""
                                 );
+
                             }
                         })
                         .build();
@@ -266,6 +317,13 @@ public class PowerConsumedActivity  extends AppCompatActivity {
                 viewHolder.port4.setText(model.getPort4());
                 viewHolder.port5.setText(model.getPort5());
                 viewHolder.port6.setText(model.getPort6());
+
+                Date date = new Date(Integer.parseInt(model.getTimeStamp()) *1000L); // convert seconds to milliseconds
+                SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd"); // the format of your date
+                String formattedDate = dateFormat.format(date);
+                System.out.println(formattedDate);
+
+                viewHolder.time.setText(formattedDate);
 
 
                 //TODO: New text code for recycler item click

@@ -1,5 +1,7 @@
 package com.botosoft.buypower.activities.ui.support;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -15,13 +17,15 @@ import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProviders;
 
 import com.botosoft.buypower.R;
+import com.botosoft.buypower.activities.LoginActivity;
 import com.botosoft.buypower.activities.PowerConsumedActivity;
 import com.botosoft.buypower.activities.RenamePortsActivity;
+import com.google.firebase.auth.FirebaseAuth;
 
 public class SupportFragment extends Fragment {
 
     private SupportViewModel notificationsViewModel;
-    Button rename, support, subscriptions, powerConsumption;
+    Button rename, support, subscriptions, powerConsumption, signOut;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
@@ -41,7 +45,38 @@ public class SupportFragment extends Fragment {
         subscriptions = (Button) view.findViewById(R.id.subscriptions);
         subscriptions = (Button) view.findViewById(R.id.subscriptions);
         powerConsumption = (Button) view.findViewById(R.id.power_consumed);
+        signOut = (Button) view.findViewById(R.id.signOut);
 
+        signOut.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                AlertDialog alertDialog = new AlertDialog.Builder(getActivity()).create();
+                alertDialog.setTitle("Proceed?");
+                alertDialog.setMessage("Do you want to sign out" );
+                alertDialog.setButton(AlertDialog.BUTTON_POSITIVE, "YES",
+                        new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+
+                                Intent signOut = new Intent (getActivity(), LoginActivity.class);
+                                signOut.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                                //sign out
+                                FirebaseAuth.getInstance().signOut();
+                                startActivity(signOut);
+                            }
+                        });
+                alertDialog.setButton(AlertDialog.BUTTON_NEGATIVE, "NO",new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        dialog.dismiss();
+                    }
+                });
+
+                alertDialog.show();
+
+            }
+        });
         rename.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

@@ -68,7 +68,7 @@ public class LoginActivity extends AppCompatActivity {
                     Toast.makeText(LoginActivity.this, "Make sure to fill all the required fields",
                             Toast.LENGTH_SHORT).show();
                 }else if(!isNetworkAvailable()){
-                    progressDialog.dismiss();
+                    //progressDialog.dismiss();
                     Toast.makeText(LoginActivity.this, "Please check your internet connection",
                             Toast.LENGTH_SHORT).show();
                 }else{
@@ -90,6 +90,7 @@ public class LoginActivity extends AppCompatActivity {
                                     if (task.isSuccessful()) {
                                         // Sign in success, update UI with the signed-in user's information
 
+                                        FirebaseUser user = mAuth.getCurrentUser();
                                         if (user.isEmailVerified()){
                                             startActivity(intent);
 

@@ -229,9 +229,9 @@ public class TopUpFragment extends Fragment {
         //create a Charge object
         Charge charge = new Charge();
         if(_port.equals("4")){
-            charge.setAmount(2000);
+            charge.setAmount(200000);
         }else{
-            charge.setAmount(4000);
+            charge.setAmount(400000);
         }
         charge.setCard(card);
         charge.setEmail("adewole63@gmail.com");
